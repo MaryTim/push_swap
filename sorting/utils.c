@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:23:44 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 16:57:15 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:43:48 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@ void	assign_index(t_node *stack)
 {
 	int	i;
 	int	medium;
-	t_node *temp;
+	//t_node *temp;
 
 	i = 0;
-	temp = stack;
+	//temp = stack;
+	if (!stack)
+		return ;
 	medium = list_size(stack) / 2;
-	while (temp)
+	while (stack)
 	{
-		temp->index = i;
+		stack->index = i;
 		if (i <= medium)
-			temp->above_medium = true;
+			stack->above_medium = true;
 		else
-			temp->above_medium = false;
-		temp = temp->next;
+			stack->above_medium = false;
+		stack = stack->next;
 		i++;
 	}
 }

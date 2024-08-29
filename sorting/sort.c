@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 17:37:04 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:50:06 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ void	get_list_info(t_node *a, t_node *b)
 	find_best_to_move(a);
 }
 
-void	move_back_b(t_node **a, t_node **b)
+void	move_back_b(t_node *a, t_node *b)
 {
-	
+	assign_index(a);
+	assign_index(b);
+	set_target_b(a, b);
 }
 
 void	sort_stack(t_node **a, t_node **b)
@@ -74,11 +76,8 @@ void	sort_stack(t_node **a, t_node **b)
 
 	while (*b)
 	{
-		assign_index(*a);
-		assign_index(*b);
-		set_target_b(*a, *b);
+		move_back_b(*a, *b);
 		move_to_a(a, b);
-
 	}
 	assign_index(*a);
 	min_on_top(a);
