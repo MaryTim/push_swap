@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:26 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 16:51:35 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:35:39 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	pb(t_node **stack_a, t_node **stack_b);
 t_node	*convert_to_list(int *array, int size);
 void	free_array(char **ptr);
 void	tiny_sort(t_node **stack);
-bool	stack_is_sorted(t_node **stack);
+bool	stack_is_sorted(t_node *stack);
 void	sort_stack(t_node **a, t_node **b);
 t_node	*get_highest(t_node *stack);
 void	get_list_info(t_node *a, t_node *b);

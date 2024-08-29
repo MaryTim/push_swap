@@ -6,22 +6,19 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 16:08:47 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/29 17:37:04 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	stack_is_sorted(t_node **stack)
+bool	stack_is_sorted(t_node *stack)
 {
-	t_node	*current;
-
-	current = *stack;
-	while (current)
+	while (stack)
 	{
-		if (current->next != NULL && current->value > current->next->value)
+		if (stack->next != NULL && stack->value > stack->next->value)
 			return (false);
-		current = current->next;
+		stack = stack->next;
 	}
 	return (true);
 }
@@ -56,18 +53,18 @@ void	sort_stack(t_node **a, t_node **b)
 	int	a_size;
 
 	a_size = list_size(*a);
-	if (a_size > 3 && !stack_is_sorted(a))
+	if (a_size > 3 && !stack_is_sorted(*a))
 	{
 		pb(a, b);
 		a_size--;
 	}
 
-	if (a_size > 3 && !stack_is_sorted(a))
+	if (a_size > 3 && !stack_is_sorted(*a))
 	{
 		pb(a, b);
 		a_size--;
 	}
-	while (a_size > 3 && !stack_is_sorted(a))
+	while (a_size > 3 && !stack_is_sorted(*a))
 	{
 		get_list_info(*a, *b);
 		move_to_b(a, b);
