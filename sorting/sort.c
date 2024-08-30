@@ -71,9 +71,8 @@ void	sort_stack(t_node **a, t_node **b)
 		get_list_info(*a, *b);
 		move_to_b(a, b);
 	}
-	perror("");
+	//perror("");
 	tiny_sort(a);
-
 	while (*b)
 	{
 		move_back_b(*a, *b);
@@ -81,6 +80,6 @@ void	sort_stack(t_node **a, t_node **b)
 	}
 	assign_index(*a);
 	min_on_top(a);
-	ft_printf("new A is\n");
-	print_list(*a);
+	// ft_printf("new A is\n");
+	// print_list(*a);
 }

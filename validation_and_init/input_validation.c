@@ -94,6 +94,8 @@ int	*handle_two_args(char **argv)
 	char	**split_res;
 
 	split_res = ft_split(argv[1], ' ');
+	if (split_res[0] == NULL)
+		print_error_message("Please check your input params!", "");
 	if (only_numbers(split_res, 0) == true)
 	{
 		res = int_array_from_string(split_res);
