@@ -16,10 +16,8 @@ void	assign_index(t_node *stack)
 {
 	int	i;
 	int	medium;
-	//t_node *temp;
 
 	i = 0;
-	//temp = stack;
 	if (!stack)
 		return ;
 	medium = list_size(stack) / 2;

@@ -30,12 +30,6 @@ void	rev_rotate_2(t_node **a, t_node **b, t_node *best_to_move)
 
 void	check_top_nodes(t_node **stack, t_node *top, char name)
 {
-	// 	assign_index(*stack);
-	// 	while (top->index != 0)
-	// {
-	// 	assign_index(*stack);
-	// 	if (name == 'b')
-	// 		ft_printf("top index is %i\n", top->index);
 	while (*stack != top)
 	{
 		if (name == 'a')
