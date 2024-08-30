@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	{
 		a = get_stack(argc, argv);
 		b = NULL;
-		if (!stack_is_sorted(&a))
+		if (!stack_is_sorted(a))
 		{
 			if (list_size(a) <= 3 && list_size(a) >= 2)
 				tiny_sort(&a);

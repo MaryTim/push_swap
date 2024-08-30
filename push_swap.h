@@ -69,5 +69,6 @@ t_node	*get_highest(t_node *stack);
 t_node	*find_best_to_move(t_node *stack);
 void	set_target_a(t_node *a, t_node *b);
 void	set_target_b(t_node *a, t_node *b);
+void	print_list(t_node *my_node);
 
 #endif

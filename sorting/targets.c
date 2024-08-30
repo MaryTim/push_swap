@@ -31,7 +31,7 @@ void	set_target_a(t_node *a, t_node *b)
 			}
 			current_b = current_b->next;
 		}
-		if (best_match == LONG_MAX)
+		if (best_match == LONG_MIN)
 			a->target = get_highest(b);
 		else
 			a->target = target;
