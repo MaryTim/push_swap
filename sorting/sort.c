@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 17:50:06 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:22:17 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 bool	stack_is_sorted(t_node *stack)
 {
-	while (stack)
+	while (stack->next)
 	{
-		if (stack->next != NULL && stack->value > stack->next->value)
+		if (stack->value > stack->next->value)
 			return (false);
 		stack = stack->next;
 	}
@@ -40,7 +40,7 @@ void	get_list_info(t_node *a, t_node *b)
 	assign_index(b);
 	set_target_a(a, b);
 	count_cost(a, b);
-	find_best_to_move(a);
+	set_best_to_move(a);
 }
 
 void	move_back_b(t_node *a, t_node *b)
@@ -71,7 +71,6 @@ void	sort_stack(t_node **a, t_node **b)
 		get_list_info(*a, *b);
 		move_to_b(a, b);
 	}
-	//perror("");
 	tiny_sort(a);
 	while (*b)
 	{
@@ -79,6 +78,7 @@ void	sort_stack(t_node **a, t_node **b)
 		move_to_a(a, b);
 	}
 	assign_index(*a);
+	perror("");
 	min_on_top(a);
 	// ft_printf("new A is\n");
 	// print_list(*a);

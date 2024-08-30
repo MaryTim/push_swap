@@ -21,7 +21,7 @@ NAME = push_swap
 
 CC = cc
 
-##CFLAGS += -Wall -Werror -Wextra
+CFLAGS += -Wall -Werror -Wextra
 
 all: $(NAME)
 

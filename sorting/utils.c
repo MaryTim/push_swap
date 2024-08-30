@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:23:44 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 17:43:48 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:36:05 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,38 +35,71 @@ void	assign_index(t_node *stack)
 
 t_node	*get_highest(t_node *stack)
 {
-	t_node	*current;
-	t_node	*highest;
+	// t_node	*current;
+	// t_node	*highest;
+
+	// if (!stack)
+	// 	return (NULL);
+	// current = stack;
+	// highest = current;
+	// while (current)
+	// {
+	// 	if (current->value > highest->value)
+	// 		highest = current;
+	// 	current = current->next;
+	// }
+	// return (highest);
+
+	long	max;
+	t_node	*max_node;
 
 	if (!stack)
 		return (NULL);
-	current = stack;
-	highest = current;
-	while (current)
+	max = LONG_MIN;
+	while (stack)
 	{
-		if (current->value > highest->value)
-			highest = current;
-		current = current->next;
+		if (stack->value > max)
+		{
+			max = stack->value;
+			max_node = stack;
+		}
+		stack = stack->next;
 	}
-	return (highest);
+	return (max_node);
 }
 
 t_node	*get_min(t_node *stack)
 {
-	t_node	*current;
-	t_node	*min;
+	long	min;
+	t_node	*min_node;
 
 	if (!stack)
 		return (NULL);
-	current = stack;
-	min = current;
-	while (current)
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (current->value < min->value)
-			min = current;
-		current = current->next;
+		if (stack->value < min)
+		{
+			min = stack->value;
+			min_node = stack;
+		}
+		stack = stack->next;
 	}
-	return (min);
+	return (min_node);
+	// t_node	*current;
+	// t_node	*min;
+
+	// if (!stack)
+	// 	return (NULL);
+	// current = stack;
+	// min = current;
+	// while (current)
+	// {
+	// 	if (current->value < min->value)
+	// 		min = current;
+	// 	current = current->next;
+	// }
+	// return (min);
 }
 
 void	count_cost(t_node *a, t_node *b)
@@ -91,6 +124,19 @@ void	count_cost(t_node *a, t_node *b)
 
 t_node	*find_best_to_move(t_node *stack)
 {
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	set_best_to_move(t_node *stack)
+{
 	long	cheapest;
 	t_node	*best_to_move;
 
@@ -104,5 +150,5 @@ t_node	*find_best_to_move(t_node *stack)
 		}
 		stack = stack->next;
 	}
-	return (best_to_move);
+	best_to_move->cheapest = true;
 }

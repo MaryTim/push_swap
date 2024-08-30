@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:12:59 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 15:35:30 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:41:23 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_node	*create_node(int value)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_node->above_medium = false;
+	new_node->cheapest = false;
 	return (new_node);
 }
 

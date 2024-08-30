@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:59:58 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 17:16:04 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:10:15 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	check_top_nodes(t_node **stack, t_node *top, char name)
 			else
 				rra(stack);
 		}
-		if (name == 'b')
+		else if (name == 'b')
 		{
 			if (top->above_medium)
 				rb(stack);
@@ -56,7 +56,7 @@ void	move_to_b(t_node **a, t_node **b)
 	best_to_move = find_best_to_move(*a);
 	if (best_to_move->above_medium && best_to_move->target->above_medium)
 		rotate_2(a, b, best_to_move);
-	else if (!best_to_move->above_medium && !best_to_move->target->above_medium)
+	else if (!(best_to_move->above_medium) && !(best_to_move->target->above_medium))
 		rev_rotate_2(a, b, best_to_move);
 	check_top_nodes(a, best_to_move, 'a');
 	check_top_nodes(b, best_to_move->target, 'b');

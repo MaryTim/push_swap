@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:26 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 17:35:39 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:36:13 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_node
 	int				index;
 	int				push_cost;
 	bool			above_medium;
+	bool			cheapest;
 }	t_node;
 
 void	print_error_message(char *message1, char *message2);
@@ -70,5 +71,6 @@ t_node	*find_best_to_move(t_node *stack);
 void	set_target_a(t_node *a, t_node *b);
 void	set_target_b(t_node *a, t_node *b);
 void	print_list(t_node *my_node);
+void	set_best_to_move(t_node *stack);
 
 #endif
