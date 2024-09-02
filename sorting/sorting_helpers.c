@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:59:58 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 18:23:48 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:00:14 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	move_to_b(t_node **a, t_node **b)
 	printf("best to move in B is %i\n", best_to_move->target->value);
 	check_top_nodes(b, best_to_move->target, 'b');
 	pb(a, b);
+	perror("AFTER");
 }
 
 void	move_to_a(t_node **a, t_node **b)

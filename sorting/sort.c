@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 18:25:46 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:33:35 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,20 @@ bool	stack_is_sorted(t_node *stack)
 
 void	min_on_top(t_node **a)
 {
-	while ((*a)->value != get_min(a)->value)
+	t_node *tmp = get_min(a);
+	print_list(*a);
+	while ((*a)->value != tmp->value)
 	{
-		if (get_min(a)->above_medium)
+		if (tmp->above_medium)
+		{
 			ra(a);
+		}
 		else
+		{
+			
 			rra(a);
+			perror("");
+		}
 	}
 }
 
@@ -57,13 +65,20 @@ void	sort_stack(t_node **a, t_node **b)
 		//perror("");
 	}
 	tiny_sort(a);
+	print_list(*a);
+	printf("current B is\n");
+	print_list(*b);
 	while (*b)
 	{
+		perror("BEFORE (push back to a)");
 		move_back_b(a, b);
+		
 		move_to_a(a, b);
+		print_list(*b);
 	}
 	assign_index(a);
 	min_on_top(a);
+	//perror("after assign index");
 	ft_printf("new A is\n");
 	print_list(*a);
 }
