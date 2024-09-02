@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:53:10 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 18:27:50 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:58:34 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,13 +135,4 @@ void	set_best_to_move(t_node **stack)
 		tmp = tmp->next;
 	}
 	best_to_move->cheapest = true;
-}
-
-void	get_stack_info(t_node **a, t_node **b)
-{
-	assign_index(a);
-	assign_index(b);
-	set_target_a(a, b);
-	count_cost_a(a, b);
-	set_best_to_move(a);
 }

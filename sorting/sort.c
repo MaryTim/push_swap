@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 19:33:35 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:58:41 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,19 @@ void	min_on_top(t_node **a)
 	while ((*a)->value != tmp->value)
 	{
 		if (tmp->above_medium)
-		{
 			ra(a);
-		}
 		else
-		{
-			
 			rra(a);
-			perror("");
-		}
 	}
+}
+
+void	get_stack_info(t_node **a, t_node **b)
+{
+	assign_index(a);
+	assign_index(b);
+	set_target_a(a, b);
+	count_cost_a(a, b);
+	set_best_to_move(a);
 }
 
 void	move_back_b(t_node **a, t_node **b)
@@ -62,23 +65,17 @@ void	sort_stack(t_node **a, t_node **b)
 	{
 		get_stack_info(a, b);
 		move_to_b(a, b);
-		//perror("");
 	}
 	tiny_sort(a);
-	print_list(*a);
-	printf("current B is\n");
-	print_list(*b);
 	while (*b)
 	{
-		perror("BEFORE (push back to a)");
 		move_back_b(a, b);
-		
 		move_to_a(a, b);
-		print_list(*b);
 	}
 	assign_index(a);
 	min_on_top(a);
-	//perror("after assign index");
 	ft_printf("new A is\n");
 	print_list(*a);
+	ft_printf("new B is\n");
+	print_list(*b);
 }

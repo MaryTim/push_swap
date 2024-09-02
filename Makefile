@@ -12,7 +12,6 @@ MY_SOURCES = push_swap.c \
 			sorting/tiny_sort.c \
 			sorting/sorting_helpers.c \
 			sorting/sort.c \
-			sorting/targets.c \
 			sorting/utils.c \
 			sorting/stack_info.c
 

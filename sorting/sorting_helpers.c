@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:59:58 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 19:00:14 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:49:51 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,14 @@ void	move_to_b(t_node **a, t_node **b)
 {
 	t_node	*best_to_move;
 
-	perror("BEFORE");
 	best_to_move = find_best_to_move(a);
 	if (best_to_move->above_medium && best_to_move->target->above_medium)
 		rotate_2(a, b, best_to_move);
 	else if (!(best_to_move->above_medium) && !(best_to_move->target->above_medium))
 		rev_rotate_2(a, b, best_to_move);
 	check_top_nodes(a, best_to_move, 'a');
-	printf("HELLO WORLD!\n");
-	printf("B is \n");
-	print_list(*b);
-	printf("A is \n");
-	print_list(*a);
-	printf("best to move in B is %i\n", best_to_move->target->value);
 	check_top_nodes(b, best_to_move->target, 'b');
 	pb(a, b);
-	perror("AFTER");
 }
 
 void	move_to_a(t_node **a, t_node **b)

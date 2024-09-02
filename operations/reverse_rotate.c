@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:09:59 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 19:44:47 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:48:26 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	reverse_rotate(t_node **head)
 	current->prev = NULL;
 	(*head)->prev = current;
 	*head = current;
-
 }
 
 void	rra(t_node **stack_a)
