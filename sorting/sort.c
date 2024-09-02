@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 19:58:41 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:08:04 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ bool	stack_is_sorted(t_node *stack)
 
 void	min_on_top(t_node **a)
 {
-	t_node *tmp = get_min(a);
-	print_list(*a);
+	t_node	*tmp;
+
+	tmp = get_min(a);
 	while ((*a)->value != tmp->value)
 	{
 		if (tmp->above_medium)

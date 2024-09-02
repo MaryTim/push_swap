@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 17:53:10 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 19:58:34 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:13:50 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	assign_index(t_node **stack)
 {
-	int	i;
-	int	medium;
-	t_node *tmp;
+	int		i;
+	int		medium;
+	t_node	*tmp;
 
 	i = 0;
 	tmp = (*stack);
@@ -38,7 +38,7 @@ void	assign_index(t_node **stack)
 void	set_target_a(t_node **a, t_node **b)
 {
 	t_node	*tmp_a;
-	t_node	*current_b;
+	t_node	*tmp_b;
 	t_node	*target;
 	long	best_match;
 
@@ -46,15 +46,15 @@ void	set_target_a(t_node **a, t_node **b)
 	while (tmp_a)
 	{
 		best_match = LONG_MIN;
-		current_b = *b;
-		while (current_b)
+		tmp_b = *b;
+		while (tmp_b)
 		{
-			if (current_b->value < tmp_a->value && current_b->value > best_match)
+			if (tmp_b->value < tmp_a->value && tmp_b->value > best_match)
 			{
-				best_match = current_b->value;
-				target = current_b;
+				best_match = tmp_b->value;
+				target = tmp_b;
 			}
-			current_b = current_b->next;
+			tmp_b = tmp_b->next;
 		}
 		if (best_match == LONG_MIN)
 			tmp_a->target = get_max(b);
@@ -66,7 +66,7 @@ void	set_target_a(t_node **a, t_node **b)
 
 void	set_target_b(t_node **a, t_node **b)
 {
-	t_node	*current_a;
+	t_node	*tmp_a;
 	t_node	*tmp_b;
 	t_node	*target;
 	long	best_match;
@@ -75,15 +75,15 @@ void	set_target_b(t_node **a, t_node **b)
 	while (tmp_b)
 	{
 		best_match = LONG_MAX;
-		current_a = *a;
-		while (current_a)
+		tmp_a = *a;
+		while (tmp_a)
 		{
-			if (current_a->value > tmp_b->value && current_a->value < best_match)
+			if (tmp_a->value > tmp_b->value && tmp_a->value < best_match)
 			{
-				best_match = current_a->value;
-				target = current_a;
+				best_match = tmp_a->value;
+				target = tmp_a;
 			}
-			current_a = current_a->next;
+			tmp_a = tmp_a->next;
 		}
 		if (best_match == LONG_MAX)
 			tmp_b->target = get_min(a);
@@ -95,8 +95,8 @@ void	set_target_b(t_node **a, t_node **b)
 
 void	count_cost_a(t_node **a, t_node **b)
 {
-	int	a_size;
-	int	b_size;
+	int		a_size;
+	int		b_size;
 	t_node	*tmp_a;
 
 	a_size = list_size(*a);
