@@ -13,7 +13,8 @@ MY_SOURCES = push_swap.c \
 			sorting/sorting_helpers.c \
 			sorting/sort.c \
 			sorting/targets.c \
-			sorting/utils.c
+			sorting/utils.c \
+			sorting/stack_info.c
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 

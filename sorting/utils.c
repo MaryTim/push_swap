@@ -6,34 +6,15 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:23:44 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/30 19:36:05 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:26:17 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	assign_index(t_node *stack)
-{
-	int	i;
-	int	medium;
 
-	i = 0;
-	if (!stack)
-		return ;
-	medium = list_size(stack) / 2;
-	while (stack)
-	{
-		stack->index = i;
-		if (i <= medium)
-			stack->above_medium = true;
-		else
-			stack->above_medium = false;
-		stack = stack->next;
-		i++;
-	}
-}
 
-t_node	*get_highest(t_node *stack)
+t_node	*get_max(t_node **stack)
 {
 	// t_node	*current;
 	// t_node	*highest;
@@ -51,39 +32,43 @@ t_node	*get_highest(t_node *stack)
 	// return (highest);
 
 	long	max;
+	t_node	*tmp;
 	t_node	*max_node;
 
-	if (!stack)
+	tmp = *stack;
+	if (!tmp)
 		return (NULL);
 	max = LONG_MIN;
-	while (stack)
+	while (tmp)
 	{
-		if (stack->value > max)
+		if (tmp->value > max)
 		{
-			max = stack->value;
-			max_node = stack;
+			max = tmp->value;
+			max_node = tmp;
 		}
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	return (max_node);
 }
 
-t_node	*get_min(t_node *stack)
+t_node	*get_min(t_node **stack)
 {
 	long	min;
+	t_node	*tmp;
 	t_node	*min_node;
 
-	if (!stack)
+	tmp = *stack;
+	if (!tmp)
 		return (NULL);
 	min = LONG_MAX;
-	while (stack)
+	while (tmp)
 	{
-		if (stack->value < min)
+		if (tmp->value < min)
 		{
-			min = stack->value;
-			min_node = stack;
+			min = tmp->value;
+			min_node = tmp;
 		}
-		stack = stack->next;
+		tmp = tmp->next;
 	}
 	return (min_node);
 	// t_node	*current;
@@ -102,53 +87,19 @@ t_node	*get_min(t_node *stack)
 	// return (min);
 }
 
-void	count_cost(t_node *a, t_node *b)
-{
-	int	a_size;
-	int	b_size;
 
-	a_size = list_size(a);
-	b_size = list_size(b);
-	while (a)
-	{
-		a->push_cost = a->index;
-		if (!a->above_medium)
-			a->push_cost = a_size - a->index;
-		if (a->target->above_medium)
-			a->push_cost += a->target->index;
-		else
-			a->push_cost += b_size - a->target->index;
-		a = a->next;
-	}
-}
-
-t_node	*find_best_to_move(t_node *stack)
+t_node	*find_best_to_move(t_node **stack)
 {
-	if (!stack)
+	t_node	*tmp;
+
+	tmp = *stack;
+	if (!tmp)
 		return (NULL);
-	while (stack)
+	while (tmp)
 	{
-		if (stack->cheapest)
-			return (stack);
-		stack = stack->next;
+		if (tmp->cheapest)
+			return (tmp);
+		tmp = tmp->next;
 	}
 	return (NULL);
-}
-
-void	set_best_to_move(t_node *stack)
-{
-	long	cheapest;
-	t_node	*best_to_move;
-
-	cheapest = LONG_MAX;
-	while (stack)
-	{
-		if (stack->push_cost < cheapest)
-		{
-			cheapest = stack->push_cost;
-			best_to_move = stack;
-		}
-		stack = stack->next;
-	}
-	best_to_move->cheapest = true;
 }

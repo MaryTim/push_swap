@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:06:00 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/21 12:14:44 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:53:08 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	push(t_node **first, t_node **second)
 {
 	t_node	*current_s;
-	t_node	*current_f;
 
 	if (!*second)
 		return ;

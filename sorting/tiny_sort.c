@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 14:53:34 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/29 12:23:08 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:32:17 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	tiny_sort(t_node **stack)
 			sa(stack);
 		return ;
 	}
-	highest = get_highest(*stack);
+	highest = get_max(stack);
 	if (*stack == highest)
 		ra(stack);
 	else if ((*stack)->next == highest)
