@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 09:50:03 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/21 15:50:40 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:34:08 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ bool	has_duplicates(int *array, int size)
 		{
 			if (array[j] == array[k])
 			{
-				print_error_message("Please make sure your input ",
+				print_error("Please make sure your input ",
 					"doesn't contain duplicates!");
 				return (true);
 			}
@@ -95,7 +95,7 @@ int	*handle_two_args(char **argv)
 
 	split_res = ft_split(argv[1], ' ');
 	if (split_res[0] == NULL)
-		print_error_message("Please check your input params!", "");
+		print_error("Please check your input params!", "");
 	if (only_numbers(split_res, 0) == true)
 	{
 		res = int_array_from_string(split_res);

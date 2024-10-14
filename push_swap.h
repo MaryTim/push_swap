@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:26 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 18:20:15 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:46:17 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_node
 	bool			cheapest;
 }	t_node;
 
-void	print_error_message(char *message1, char *message2);
+void	print_error(char *message1, char *message2);
 bool	check_min_max_int(long l);
 bool	only_numbers(char **argv, int i);
 int		*validation_and_result(int argc, char **argv);
@@ -70,7 +70,6 @@ void	count_cost_a(t_node **a, t_node **b);
 t_node	*find_best_to_move(t_node **stack);
 void	set_target_a(t_node **a, t_node **b);
 void	set_target_b(t_node **a, t_node **b);
-void	print_list(t_node *my_node);
 void	set_best_to_move(t_node **stack);
 
 #endif

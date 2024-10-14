@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 15:19:14 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/09/02 20:08:04 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:46:37 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,4 @@ void	sort_stack(t_node **a, t_node **b)
 	}
 	assign_index(a);
 	min_on_top(a);
-	ft_printf("new A is\n");
-	print_list(*a);
-	ft_printf("new B is\n");
-	print_list(*b);
 }

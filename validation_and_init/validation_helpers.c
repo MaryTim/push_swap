@@ -6,7 +6,7 @@
 /*   By: mbudkevi <mbudkevi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 14:27:27 by mbudkevi          #+#    #+#             */
-/*   Updated: 2024/08/22 16:36:40 by mbudkevi         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:30:10 by mbudkevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool	only_numbers(char **argv, int i)
 	{
 		if (!is_number(argv[i]))
 		{
-			print_error_message("Please check your input parameters ",
+			print_error("Please check your input parameters ",
 				"only numbers must be provided!");
 			return (false);
 		}
@@ -56,7 +56,7 @@ bool	check_min_max_int(long l)
 {
 	if (l < INT_MIN || l > INT_MAX)
 	{
-		print_error_message("Please make sure your input parameters ",
+		print_error("Please make sure your input parameters ",
 			"are within INT_MIN INT_MAX limits!");
 		return (false);
 	}
